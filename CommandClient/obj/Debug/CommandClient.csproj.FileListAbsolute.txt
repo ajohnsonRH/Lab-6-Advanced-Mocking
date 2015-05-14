@@ -1,0 +1,6 @@
+C:\Users\johnsoaa\Desktop\CSSE376\CSSE376AdvancedMocking-master\CommandClient\bin\Debug\CommandClient.XML
+C:\Users\johnsoaa\Desktop\CSSE376\CSSE376AdvancedMocking-master\CommandClient\bin\Debug\CommandClient.dll
+C:\Users\johnsoaa\Desktop\CSSE376\CSSE376AdvancedMocking-master\CommandClient\bin\Debug\CommandClient.pdb
+C:\Users\johnsoaa\Desktop\CSSE376\CSSE376AdvancedMocking-master\CommandClient\obj\Debug\CommandClient.csprojResolveAssemblyReference.cache
+C:\Users\johnsoaa\Desktop\CSSE376\CSSE376AdvancedMocking-master\CommandClient\obj\Debug\CommandClient.dll
+C:\Users\johnsoaa\Desktop\CSSE376\CSSE376AdvancedMocking-master\CommandClient\obj\Debug\CommandClient.pdb

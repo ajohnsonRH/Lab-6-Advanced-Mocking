@@ -1,0 +1,16 @@
+C:\Users\johnsoaa\Desktop\CSSE376\CSSE376AdvancedMocking-master\ChatClient\bin\Debug\ChatClient.exe.config
+C:\Users\johnsoaa\Desktop\CSSE376\CSSE376AdvancedMocking-master\ChatClient\bin\Debug\ChatClient.exe
+C:\Users\johnsoaa\Desktop\CSSE376\CSSE376AdvancedMocking-master\ChatClient\bin\Debug\ChatClient.pdb
+C:\Users\johnsoaa\Desktop\CSSE376\CSSE376AdvancedMocking-master\ChatClient\bin\Debug\CommandClient.dll
+C:\Users\johnsoaa\Desktop\CSSE376\CSSE376AdvancedMocking-master\ChatClient\bin\Debug\P_0_0_0.U_0.dll
+C:\Users\johnsoaa\Desktop\CSSE376\CSSE376AdvancedMocking-master\ChatClient\bin\Debug\CommandClient.pdb
+C:\Users\johnsoaa\Desktop\CSSE376\CSSE376AdvancedMocking-master\ChatClient\bin\Debug\CommandClient.xml
+C:\Users\johnsoaa\Desktop\CSSE376\CSSE376AdvancedMocking-master\ChatClient\bin\Debug\P_0_0_0.U_0.xml
+C:\Users\johnsoaa\Desktop\CSSE376\CSSE376AdvancedMocking-master\ChatClient\obj\Debug\ChatClient.csprojResolveAssemblyReference.cache
+C:\Users\johnsoaa\Desktop\CSSE376\CSSE376AdvancedMocking-master\ChatClient\obj\Debug\ChatClient.frmPrivate.resources
+C:\Users\johnsoaa\Desktop\CSSE376\CSSE376AdvancedMocking-master\ChatClient\obj\Debug\ChatClient.frmMain.resources
+C:\Users\johnsoaa\Desktop\CSSE376\CSSE376AdvancedMocking-master\ChatClient\obj\Debug\ChatClient.Properties.Resources.resources
+C:\Users\johnsoaa\Desktop\CSSE376\CSSE376AdvancedMocking-master\ChatClient\obj\Debug\ChatClient.frmLogin.resources
+C:\Users\johnsoaa\Desktop\CSSE376\CSSE376AdvancedMocking-master\ChatClient\obj\Debug\ChatClient.csproj.GenerateResource.Cache
+C:\Users\johnsoaa\Desktop\CSSE376\CSSE376AdvancedMocking-master\ChatClient\obj\Debug\ChatClient.exe
+C:\Users\johnsoaa\Desktop\CSSE376\CSSE376AdvancedMocking-master\ChatClient\obj\Debug\ChatClient.pdb

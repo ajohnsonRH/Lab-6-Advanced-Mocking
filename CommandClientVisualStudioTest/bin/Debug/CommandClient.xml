@@ -1,0 +1,427 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CommandClient</name>
+    </assembly>
+    <members>
+        <member name="T:Proshot.CommandClient.Command">
+            <summary>
+            A class that implements a command object.
+            </summary>
+        </member>
+        <member name="M:Proshot.CommandClient.Command.#ctor(Proshot.CommandClient.CommandType,System.Net.IPAddress,System.String)">
+            <summary>
+            Creates an instance of command object to send over the network.
+            </summary>
+            <param name="type">The type of command.If you wanna use the Message command type,create a Message class instead of command.</param>
+            <param name="targetMachine">The targer machine that will receive the command.Set this property to IPAddress.Broadcast if you want send the command to all connected clients.</param>
+            <param name="metaData">
+            The body of the command.This string is different in various commands.
+            <para>Message : The text of the message.</para>
+            <para>ClientLoginInform : "RemoteClientIP:RemoteClientName".</para>
+            <para>***WithTimer : The interval of timer in miliseconds..The default value is 60000 equal to 1 min.</para>
+            <para>IsNameExists : The name of client you want to check it's existance.</para>
+            <para>Otherwise pass the "" or null or use the next overriden constructor.</para>
+            </param>
+        </member>
+        <member name="M:Proshot.CommandClient.Command.#ctor(Proshot.CommandClient.CommandType,System.Net.IPAddress)">
+            <summary>
+            Creates an instance of command object to send over the network.
+            </summary>
+            <param name="type">The type of command.If you wanna use the Message command type,create a Message class instead of command.</param>
+            <param name="targetMachine">The targer machine that will receive the command.Set this property to IPAddress.Broadcast if you want send the command to all connected clients.</param>
+        </member>
+        <member name="P:Proshot.CommandClient.Command.SenderIP">
+            <summary>
+            [Gets/Sets] The IP address of command sender.
+            </summary>
+        </member>
+        <member name="P:Proshot.CommandClient.Command.SenderName">
+            <summary>
+            [Gets/Sets] The name of command sender.
+            </summary>
+        </member>
+        <member name="P:Proshot.CommandClient.Command.CommandType">
+            <summary>
+            [Gets/Sets]  The type of command to send.If you wanna use the Message command type,create a Message class instead of command.
+            </summary>
+        </member>
+        <member name="P:Proshot.CommandClient.Command.Target">
+            <summary>
+            [Gets/Sets] The targer machine that will receive the command.Set this property to IPAddress.Broadcast if you want send the command to all connected clients.
+            </summary>
+        </member>
+        <member name="P:Proshot.CommandClient.Command.MetaData">
+            <summary>
+            [Gets/Sets] The body of the command.This string is different in various commands.
+            <para>Message : The text of the message.</para>
+            <para>ClientLoginInform,ClientLogOffInform : The IP of loged in/out machine.</para>
+            <para>***WithTimer : The interval of timer in miliseconds.The default value is 60000 equal to 1 min.</para>
+            <para>IsNameExists : The name of client you want to check it's existance.</para>
+            <para>Otherwise pass the "" or null.</para>
+            </summary>
+        </member>
+        <member name="T:Proshot.CommandClient.CMDClient">
+            <summary>
+            The command client command class.
+            </summary>
+        </member>
+        <member name="M:Proshot.CommandClient.CMDClient.#ctor(System.Net.IPEndPoint,System.String)">
+            <summary>
+            Cretaes a command client instance.
+            </summary>
+            <param name="server">The remote server to connect.</param>
+            <param name="netName">The string that will send to the server and then to other clients, to identify this client to all clients.</param>
+        </member>
+        <member name="M:Proshot.CommandClient.CMDClient.#ctor(System.Net.IPAddress,System.Int32,System.String)">
+             <summary>
+             Cretaes a command client instance.
+             </summary>
+            <param name="serverIP">The IP of remote server.</param>
+            <param name="port">The port of remote server.</param>
+             <param name="netName">The string that will send to the server and then to other clients, to identify this client to all clients.</param>
+        </member>
+        <member name="M:Proshot.CommandClient.CMDClient.ConnectToServer">
+            <summary>
+            Connect the current instance of command client to the server.This method throws ServerNotFoundException on failur.Run this method and handle the 'ConnectingSuccessed' and 'ConnectingFailed' to get the connection state.
+            </summary>
+        </member>
+        <member name="M:Proshot.CommandClient.CMDClient.SendCommand(Proshot.CommandClient.Command)">
+            <summary>
+            Sends a command to the server if the connection is alive.
+            </summary>
+            <param name="cmd">The command to send.</param>
+        </member>
+        <member name="M:Proshot.CommandClient.CMDClient.Disconnect">
+            <summary>
+            Disconnect the client from the server and returns true if the client had been disconnected from the server.
+            </summary>
+            <returns>True if the client had been disconnected from the server,otherwise false.</returns>
+        </member>
+        <member name="M:Proshot.CommandClient.CMDClient.OnCommandReceived(Proshot.CommandClient.CommandEventArgs)">
+            <summary>
+            Occurs when a command received from a remote client.
+            </summary>
+            <param name="e">The received command.</param>
+        </member>
+        <member name="M:Proshot.CommandClient.CMDClient.OnCommandSent(System.EventArgs)">
+            <summary>
+            Occurs when a command had been sent to the the remote server Successfully.
+            </summary>
+            <param name="e">The sent command.</param>
+        </member>
+        <member name="M:Proshot.CommandClient.CMDClient.OnCommandFailed(System.EventArgs)">
+            <summary>
+            Occurs when a command sending action had been failed.This is because disconnection or sending exception.
+            </summary>
+            <param name="e">The sent command.</param>
+        </member>
+        <member name="M:Proshot.CommandClient.CMDClient.OnServerDisconnected(Proshot.CommandClient.ServerEventArgs)">
+            <summary>
+            Occurs when the server disconnected.
+            </summary>
+            <param name="e">Server information.</param>
+        </member>
+        <member name="M:Proshot.CommandClient.CMDClient.OnDisconnectedFromServer(System.EventArgs)">
+            <summary>
+            Occurs when this client disconnected from the remote server.
+            </summary>
+            <param name="e">EventArgs.</param>
+        </member>
+        <member name="M:Proshot.CommandClient.CMDClient.OnConnectingSuccessed(System.EventArgs)">
+            <summary>
+            Occurs when this client connected to the remote server Successfully.
+            </summary>
+            <param name="e">EventArgs.</param>
+        </member>
+        <member name="M:Proshot.CommandClient.CMDClient.OnConnectingFailed(System.EventArgs)">
+            <summary>
+            Occurs when this client failed on connecting to server.
+            </summary>
+            <param name="e">EventArgs.</param>
+        </member>
+        <member name="M:Proshot.CommandClient.CMDClient.OnNetworkDead(System.EventArgs)">
+            <summary>
+            Occurs when the network had been failed.
+            </summary>
+            <param name="e">EventArgs.</param>
+        </member>
+        <member name="M:Proshot.CommandClient.CMDClient.OnNetworkAlived(System.EventArgs)">
+            <summary>
+            Occurs when the network had been started to work.
+            </summary>
+            <param name="e">EventArgs.</param>
+        </member>
+        <member name="P:Proshot.CommandClient.CMDClient.Connected">
+            <summary>
+            [Gets] The value that specifies the current client is connected or not.
+            </summary>
+        </member>
+        <member name="P:Proshot.CommandClient.CMDClient.ServerIP">
+            <summary>
+            [Gets] The IP address of the remote server.If this client is disconnected,this property returns IPAddress.None.
+            </summary>
+        </member>
+        <member name="P:Proshot.CommandClient.CMDClient.ServerPort">
+            <summary>
+            [Gets] The comunication port of the remote server.If this client is disconnected,this property returns -1.
+            </summary>
+        </member>
+        <member name="P:Proshot.CommandClient.CMDClient.IP">
+            <summary>
+            [Gets] The IP address of this client.If this client is disconnected,this property returns IPAddress.None.
+            </summary>
+        </member>
+        <member name="P:Proshot.CommandClient.CMDClient.Port">
+            <summary>
+            [Gets] The comunication port of this client.If this client is disconnected,this property returns -1.
+            </summary>
+        </member>
+        <member name="P:Proshot.CommandClient.CMDClient.NetworkName">
+            <summary>
+            [Gets/Sets] The string that will sent to the server and then to other clients, to identify this client to them.
+            </summary>
+        </member>
+        <member name="E:Proshot.CommandClient.CMDClient.CommandReceived">
+            <summary>
+            Occurs when a command received from a remote client.
+            </summary>
+        </member>
+        <member name="E:Proshot.CommandClient.CMDClient.CommandSent">
+            <summary>
+            Occurs when a command had been sent to the the remote server Successfully.
+            </summary>
+        </member>
+        <member name="E:Proshot.CommandClient.CMDClient.CommandFailed">
+            <summary>
+            Occurs when a command sending action had been failed.This is because disconnection or sending exception.
+            </summary>
+        </member>
+        <member name="E:Proshot.CommandClient.CMDClient.ServerDisconnected">
+            <summary>
+            Occurs when the client disconnected.
+            </summary>
+        </member>
+        <member name="E:Proshot.CommandClient.CMDClient.DisconnectedFromServer">
+            <summary>
+            Occurs when this client disconnected from the remote server.
+            </summary>
+        </member>
+        <member name="E:Proshot.CommandClient.CMDClient.ConnectingSuccessed">
+            <summary>
+            Occurs when this client connected to the remote server Successfully.
+            </summary>
+        </member>
+        <member name="E:Proshot.CommandClient.CMDClient.ConnectingFailed">
+            <summary>
+            Occurs when this client failed on connecting to server.
+            </summary>
+        </member>
+        <member name="E:Proshot.CommandClient.CMDClient.NetworkDead">
+            <summary>
+            Occurs when the network had been failed.
+            </summary>
+        </member>
+        <member name="E:Proshot.CommandClient.CMDClient.NetworkAlived">
+            <summary>
+            Occurs when the network had been started to work.
+            </summary>
+        </member>
+        <member name="T:Proshot.CommandClient.CommandType">
+            <summary>
+            The type of commands that you can sent to the server.(Note : These are just some comman types.You should do the desired actions when a command received to the client yourself.)
+            </summary>
+        </member>
+        <member name="F:Proshot.CommandClient.CommandType.UserExit">
+            <summary>
+            Force the target to logoff from the application without prompt.Pass null or "" as command's Metadata.
+            </summary>
+        </member>
+        <member name="F:Proshot.CommandClient.CommandType.UserExitWithTimer">
+            <summary>
+            Force the target to logoff from the application with prompt.Pass the timer interval of logoff action as command's Metadata in miliseconds.For example "20000".
+            </summary>
+        </member>
+        <member name="F:Proshot.CommandClient.CommandType.PCLock">
+            <summary>
+            Force the target PC to LOCK without prompt.Pass null or "" as command's Metadata.
+            </summary>
+        </member>
+        <member name="F:Proshot.CommandClient.CommandType.PCLockWithTimer">
+            <summary>
+            Force the target PC to LOCK with prompt.Pass the timer interval of LOCK action as command's Metadata in miliseconds.For example "20000".
+            </summary>
+        </member>
+        <member name="F:Proshot.CommandClient.CommandType.PCRestart">
+            <summary>
+            Force the target PC to RESTART without prompt.Pass null or "" as command's Metadata.
+            </summary>
+        </member>
+        <member name="F:Proshot.CommandClient.CommandType.PCRestartWithTimer">
+            <summary>
+            Force the target PC to RESTART with prompt.Pass the timer interval of RESTART action as command's Metadata in miliseconds.For example "20000".
+            </summary>
+        </member>
+        <member name="F:Proshot.CommandClient.CommandType.PCLogOFF">
+            <summary>
+            Force the target PC to LOGOFF without prompt.Pass null or "" as command's Metadata.
+            </summary>
+        </member>
+        <member name="F:Proshot.CommandClient.CommandType.PCLogOFFWithTimer">
+            <summary>
+            Force the target PC to LOGOFF with prompt.Pass the timer interval of LOGOFF action as command's Metadata in miliseconds.For example "20000".
+            </summary>
+        </member>
+        <member name="F:Proshot.CommandClient.CommandType.PCShutDown">
+            <summary>
+            Force the target PC to SHUTDOWN without prompt.Pass null or "" as command's Metadata.
+            </summary>
+        </member>
+        <member name="F:Proshot.CommandClient.CommandType.PCShutDownWithTimer">
+            <summary>
+            Force the target PC to SHUTDOWN with prompt.Pass the timer interval of SHUTDOWN action as command's Metadata in miliseconds.For example "20000".
+            </summary>
+        </member>
+        <member name="F:Proshot.CommandClient.CommandType.Message">
+            <summary>
+            Send a text message to the server.Pass the body of text message as command's Metadata.
+            </summary>
+        </member>
+        <member name="F:Proshot.CommandClient.CommandType.ClientLoginInform">
+            <summary>
+            This command will sent to all clients when an specific client is had been logged in to the server.The metadata of this command is in this format : "ClientIP:ClientNetworkName"
+            </summary>
+        </member>
+        <member name="F:Proshot.CommandClient.CommandType.ClientLogOffInform">
+            <summary>
+            This command will sent to all clients when an specific client is had been logged off from the server.You can get the disconnected client information from SenderIP and SenderName properties of command event args.
+            </summary>
+        </member>
+        <member name="F:Proshot.CommandClient.CommandType.IsNameExists">
+            <summary>
+            To ask from the server pass the name that you want check it's existance as meta data of command.The server will replay to you a command with the same type and MetaData of 'True' or 'False' that specifies the Network name is exists on the server or not.
+            </summary>
+        </member>
+        <member name="F:Proshot.CommandClient.CommandType.SendClientList">
+            <summary>
+            To get a list of current connected clients to the server,Send this type of command to it.The server will replay to you one same command for each client with the metadata in this format : "ClientIP:ClientNetworkName".
+            </summary>
+        </member>
+        <member name="F:Proshot.CommandClient.CommandType.FreeCommand">
+            <summary>
+            This is a free command that you can sent to the server.
+            </summary>
+        </member>
+        <member name="T:Proshot.CommandClient.CommandReceivedEventHandler">
+            <summary>
+            Occurs when a command received from the server.
+            </summary>
+            <param name="sender">Sender.</param>
+            <param name="e">The information about the received command.</param>
+        </member>
+        <member name="T:Proshot.CommandClient.CommandSentEventHandler">
+            <summary>
+            Occurs when a command had been sent to the the remote server Successfully.
+            </summary>
+            <param name="sender">Sender.</param>
+            <param name="e">EventArgs.</param>
+        </member>
+        <member name="T:Proshot.CommandClient.CommandSendingFailedEventHandler">
+            <summary>
+            Occurs when a command sending action had been failed.This is because disconnection or sending exception.
+            </summary>
+            <param name="sender">Sender.</param>
+            <param name="e">EventArgs.</param>
+        </member>
+        <member name="T:Proshot.CommandClient.CommandEventArgs">
+            <summary>
+            The class that contains information about a command.
+            </summary>
+        </member>
+        <member name="M:Proshot.CommandClient.CommandEventArgs.#ctor(Proshot.CommandClient.Command)">
+            <summary>
+            Creates an instance of CommandEventArgs class.
+            </summary>
+            <param name="cmd">The received command.</param>
+        </member>
+        <member name="P:Proshot.CommandClient.CommandEventArgs.Command">
+            <summary>
+            The received command.
+            </summary>
+        </member>
+        <member name="T:Proshot.CommandClient.ServerDisconnectedEventHandler">
+            <summary>
+            Occurs when the server had been disconnected from this client.
+            </summary>
+            <param name="sender">Sender.</param>
+            <param name="e">The server information.</param>
+        </member>
+        <member name="T:Proshot.CommandClient.ServerEventArgs">
+            <summary>
+            The class that contains information about the server.
+            </summary>
+        </member>
+        <member name="M:Proshot.CommandClient.ServerEventArgs.#ctor(System.Net.Sockets.Socket)">
+            <summary>
+            Creates an instance of ServerEventArgs class.
+            </summary>
+            <param name="clientSocket">The client socket of current CommandClient instance.</param>
+        </member>
+        <member name="P:Proshot.CommandClient.ServerEventArgs.IP">
+            <summary>
+            The IP address of server.
+            </summary>
+        </member>
+        <member name="P:Proshot.CommandClient.ServerEventArgs.Port">
+            <summary>
+            The port of server.
+            </summary>
+        </member>
+        <member name="T:Proshot.CommandClient.DisconnectedEventHandler">
+            <summary>
+            Occurs when this client disconnected from the server.
+            </summary>
+            <param name="sender">Sender.</param>
+            <param name="e">EventArgs.</param>
+        </member>
+        <member name="T:Proshot.CommandClient.ConnectingSuccessedEventHandler">
+            <summary>
+            Occurs when this client connected to the remote server Successfully.
+            </summary>
+            <param name="sender">Sender.</param>
+            <param name="e">EventArgs.</param>
+        </member>
+        <member name="T:Proshot.CommandClient.ConnectingFailedEventHandler">
+            <summary>
+            Occurs when this client failed on connecting to server.
+            </summary>
+            <param name="sender">Sender.</param>
+            <param name="e">EventArgs.</param>
+        </member>
+        <member name="T:Proshot.CommandClient.NetworkDeadEventHandler">
+            <summary>
+            Occurs when the network had been failed.
+            </summary>
+            <param name="sender">Sender.</param>
+            <param name="e">EventArgs.</param>
+        </member>
+        <member name="T:Proshot.CommandClient.NetworkAlivedEventHandler">
+            <summary>
+            Occurs when the network had been started to work.
+            </summary>
+            <param name="sender">Sender.</param>
+            <param name="e">EventArgs.</param>
+        </member>
+        <member name="T:Proshot.CommandClient.ServerNotFoundException">
+            <summary>
+            Throw when the remote server not found.
+            </summary>
+        </member>
+        <member name="M:Proshot.CommandClient.ServerNotFoundException.#ctor(System.String)">
+            <summary>
+            Creates an instance of ServerNotFoundException class.
+            </summary>
+            <param name="message">The message to show to the user.</param>
+        </member>
+    </members>
+</doc>

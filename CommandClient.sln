@@ -1,13 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.30501.0
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommandClient", "..\..\..\Desktop\CSSE376\CSSE376AdvancedMocking-master\CommandClient\CommandClient.csproj", "{69BBC64F-1EEB-4A16-9FCE-7667BA0C0338}"
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommandClient", "CommandClient\CommandClient.csproj", "{69BBC64F-1EEB-4A16-9FCE-7667BA0C0338}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatClient", "..\..\..\Desktop\CSSE376\CSSE376AdvancedMocking-master\ChatClient\ChatClient.csproj", "{4D541CA1-1D32-4F23-A48B-E649E26E63B0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatClient", "ChatClient\ChatClient.csproj", "{4D541CA1-1D32-4F23-A48B-E649E26E63B0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommandClientVisualStudioTest", "..\..\..\Desktop\CSSE376\CSSE376AdvancedMocking-master\CommandClientVisualStudioTest\CommandClientVisualStudioTest.csproj", "{38A4C0DB-B859-47D9-B8F0-CF93F7D8EA7B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommandClientVisualStudioTest", "CommandClientVisualStudioTest\CommandClientVisualStudioTest.csproj", "{38A4C0DB-B859-47D9-B8F0-CF93F7D8EA7B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

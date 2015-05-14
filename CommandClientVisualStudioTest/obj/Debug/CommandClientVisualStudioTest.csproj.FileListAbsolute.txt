@@ -1,0 +1,10 @@
+C:\Users\johnsoaa\Desktop\CSSE376\CSSE376AdvancedMocking-master\CommandClientVisualStudioTest\bin\Debug\CommandClientVisualStudioTest.dll
+C:\Users\johnsoaa\Desktop\CSSE376\CSSE376AdvancedMocking-master\CommandClientVisualStudioTest\bin\Debug\CommandClientVisualStudioTest.pdb
+C:\Users\johnsoaa\Desktop\CSSE376\CSSE376AdvancedMocking-master\CommandClientVisualStudioTest\bin\Debug\CommandClient.dll
+C:\Users\johnsoaa\Desktop\CSSE376\CSSE376AdvancedMocking-master\CommandClientVisualStudioTest\bin\Debug\Rhino.Mocks.dll
+C:\Users\johnsoaa\Desktop\CSSE376\CSSE376AdvancedMocking-master\CommandClientVisualStudioTest\bin\Debug\CommandClient.pdb
+C:\Users\johnsoaa\Desktop\CSSE376\CSSE376AdvancedMocking-master\CommandClientVisualStudioTest\bin\Debug\CommandClient.xml
+C:\Users\johnsoaa\Desktop\CSSE376\CSSE376AdvancedMocking-master\CommandClientVisualStudioTest\bin\Debug\Rhino.Mocks.xml
+C:\Users\johnsoaa\Desktop\CSSE376\CSSE376AdvancedMocking-master\CommandClientVisualStudioTest\obj\Debug\CommandClientVisualStudioTest.csprojResolveAssemblyReference.cache
+C:\Users\johnsoaa\Desktop\CSSE376\CSSE376AdvancedMocking-master\CommandClientVisualStudioTest\obj\Debug\CommandClientVisualStudioTest.dll
+C:\Users\johnsoaa\Desktop\CSSE376\CSSE376AdvancedMocking-master\CommandClientVisualStudioTest\obj\Debug\CommandClientVisualStudioTest.pdb
